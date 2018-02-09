@@ -75,7 +75,7 @@ export default class Game extends React.Component{
     if (this.state.squares[index] === null && !this.state.winners){
       await this.setSquare(index)
       await this.checkGameState()
-      if (!this.state.winners){
+      if (!this.state.winners && !this.state.draw){
         await this.changePlayer()
       }
     }
