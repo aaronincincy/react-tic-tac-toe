@@ -91,7 +91,6 @@ export default class Game extends React.Component{
       <div>
         <Board draw={this.state.draw} winners={this.state.winners} squares={this.state.squares} onMove={this.handleSquareSelect} />
         <button onClick={this.reset}>Reset</button>
-        {this.state.winners}
       </div>
     )
   }
