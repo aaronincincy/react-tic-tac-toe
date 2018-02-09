@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import PlayerMarker from './PlayerMarker'
 
 const backgrounds = {
   unselected: 'lightgray',
@@ -16,10 +17,17 @@ const colors = {
   win: '#3c763d',
 }
 
-
-
 export default styled.div`
   border-radius: 10px;
   background: ${({status}) => backgrounds[status]};
-  color: ${({status}) => colors[status]}
+  color: ${({status}) => colors[status]};
+  cursor: pointer;
+
+  & ${PlayerMarker} {
+    opacity: ${({status}) => status === 'unselected' ? 0 : 1};
+    transition: 500ms;
+  }
+  &:hover ${PlayerMarker} {
+    opacity: 1;
+  }
 `

@@ -11,11 +11,11 @@ const getSquareStatus = (winners, draw, square, index) =>{
   return 'unselected'
 }
 
-const Board = ({className, squares, winners, draw, onMove}) => (
+const Board = ({className, currentPlayer, squares, winners, draw, onMove}) => (
   <div className={className}>
     {squares.map((square, index) => (
       <Square key={index} status={getSquareStatus(winners, draw, square, index)} onClick={() => onMove(index)}>
-        {square && <PlayerMarker player={square} />}
+        <PlayerMarker player={square || currentPlayer} />
       </Square>
     ))}
   </div>
@@ -27,4 +27,5 @@ export default styled(Board)`
   grid-gap: 10px;
   width:300px;
   height:300px;
+  margin: 10px auto;
 `
